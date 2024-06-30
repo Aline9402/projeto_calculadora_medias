@@ -4,15 +4,19 @@ document.getElementById('formularioContato').addEventListener('submit', function
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
 
-    const tabelaContatos = document.getElementById('tabelaContatos');
-    const novaLinha = tabelaContatos.insertRow();
+    if (nome && telefone) {
+        const tabelaContatos = document.getElementById('tabelaContatos');
+        const novaLinha = tabelaContatos.insertRow();
 
-    const celulaNome = novaLinha.insertCell(0);
-    const celulaTelefone = novaLinha.insertCell(1);
+        const celulaNome = novaLinha.insertCell(0);
+        const celulaTelefone = novaLinha.insertCell(1);
 
-    celulaNome.textContent = nome;
-    celulaTelefone.textContent = telefone;
+        celulaNome.textContent = nome;
+        celulaTelefone.textContent = telefone;
 
-    // Limpa os campos do formulário após adicionar o contato
-    document.getElementById('formularioContato').reset();
+        // Limpa os campos do formulário após adicionar o contato
+        document.getElementById('formularioContato').reset();
+    } else {
+        alert("Por favor, preencha ambos os campos.");
+    }
 });
